@@ -63,33 +63,6 @@ int main(int argc, char** argv, char** envp){
                 }
                 else{
                     bloq=0;
-<<<<<<< HEAD
-
-                    for(int i=0;i<1;i++){
-                        for(int j=0;j<45;j++){
-                            //li.textEdit[i][j]=mvgetch(i+2,j+3);
-                            //sprintf(buffer,"%c", mvgets(i+2,j+3));
-                            mvgetstr(i+2,j+3, buffer); 
-                            mvprintw(i+3,j+3, buffer);
-                            li.textEdit[posy-2][posx-3]= buffer;
-                            mvprintw(i+4,j+3,li.textEdit[i][j]);
-                            //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
-                            //itoa(mvgetch(i+2,j+3),li.textEdit[i][j],1);
-/*
-                            if(li.textEdit[i][j]==NULL){
-                                mvprintw(i+2,j+3,"%1s",esp);
-                                break;
-                            }
-                            else{
-                            mvprintw(i+2,j+3,li.textEdit[i][j]);
-                            }
-    */
-                        }
-
-                    }
-                    
-			posx=3;
-=======
                   
 
 /*
@@ -110,7 +83,6 @@ int main(int argc, char** argv, char** envp){
                         
 
 		
->>>>>>> e798d4838ce41748ab0b4c4e979f0b5eaea298a1
                 }
 		
                 break;
