@@ -5,9 +5,9 @@ int main(int argc, char** argv, char** envp){
 
     int nrow, ncol, posx, posy, oposx, oposy;
     char esp[] = " ";
-    char buffer[2];
+    char *buffer[50];
     int ch,chi;
-    int i,j;
+    int i,j,k=0;
     int bloq=0;
     LinesEdit li;
    
@@ -56,7 +56,7 @@ int main(int argc, char** argv, char** envp){
                 {
                     init_pair(1,COLOR_RED,COLOR_BLUE);
                     attron(COLOR_PAIR(1));
-                    mvprintw(oposy,oposx,"%45s", esp);
+                    mvprintw(oposy,3,"%45s", esp);
                     bloq=1;
                     move(oposy,oposx);
                     
@@ -64,26 +64,24 @@ int main(int argc, char** argv, char** envp){
                 else{
                     bloq=0;
                   
-			for(int i=0;i<1;i++){
-                        	for(int j=0;j<45;j++){
-                                    //li.textEdit[i][j]=mvgetch(i+2,j+3);
-                                    sprintf(buffer,"%c", mvgetch(i+2,j+3));
-                                    li.textEdit[posy-2][posx-3]= buffer; 
-                                    //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
-                                    //itoa(mvgetch(i+2,j+3),li.textEdit[i][j],1);
+
 /*
-                                    if(li.textEdit[i][j]==NULL){
-                                        mvprintw(i+2,j+3,"%1s",esp);
-                                        break;
-                                    }
-                                    else{
-                                    mvprintw(i+2,j+3,li.textEdit[i][j]);
-                                    }
-*/
+			for(int i=0;i<posy+2;i++){
+                        	for(int j=0;j<posx+3;j++){
+                                    
+                                    li.textEdit[i][j]=buffer[j]; 
+
+                                    mvprintw(posy+3,posx, "%s", li.textEdit[i][j]);
+
+                                    
                                 }
                         
                         }
+*/
+                        
 			posx=3;
+                        
+
 		
                 }
 		
@@ -120,9 +118,11 @@ int main(int argc, char** argv, char** envp){
                     if(posx!=MEDIT_MAXCOLUMNS+3)
                     {
 			                        
-			//sprintf(buffer,"%c", ch);
-                        //li.textEdit[posy-2][posx-3]= buffer; 
-                        //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
+/*
+			sprintf(buffer[k],"%c", ch);
+                        k++;
+*/
+                        
                         mvprintw(posy, posx, "%c", ch);
                         posx++;
 
