@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <ncurses.h>
+#include <string.h>
+
+#define CH "*"
+
+int main(void){
+
+   int nrow, ncol, posx, posy, oposx, oposy;
+   int ch;
+
+   initscr();
+   clear();
+   noecho();
+   cbreak();
+   keypad(stdscr, TRUE);
+   getmaxyx(stdscr, nrow, ncol);
+   posy = nrow/2;
+   posx = ncol/2;
+   mvaddch(posy,posx,CH);
+   mvprintw(0,0,"(%d,%d)  ", posy,posx);
+   refresh();
+   do{
+	ch = getch();
+	oposy = posy;
+        oposx = posx;
+        switch (ch){
+		case KEY_UP:
+			posy = (posy>0)?posy-1:posy;
+			break;
+		case KEY_DOWN:
+                        posy = (posy<(nrow-1))?posy+1:posy;
+                        break;
+		case KEY_LEFT:
+                        posx = (posx>0)?posx-1:posx;
+                        break;
+		case KEY_RIGHT:
+                        posx = (posy<(ncol-1))?posy+1:posy;
+                        break;
+	}
+        if (ch==KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT){
+		mvaddch(oposy,oposx,' ');
+		mvaddch(posy,posx,CH);
+		mvprintw(0,0,"(%d,%d)  ",posy,possx);
+		refresh();
+	}
+   }while(posy!=(nrow-1) || posx!=(ncol-1));
+   endwin();
+
+   return 0;
+}
