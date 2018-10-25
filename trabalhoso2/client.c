@@ -11,6 +11,10 @@ int main(int argc, char** argv, char** envp){
     int bloq=0;
     LinesEdit li;
    
+
+//sdjbfsdbfsjdbfjsdfbj
+
+
     initscr();
     clear();
     noecho();
