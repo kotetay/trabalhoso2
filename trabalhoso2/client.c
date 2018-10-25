@@ -5,9 +5,9 @@ int main(int argc, char** argv, char** envp){
 
     int nrow, ncol, posx, posy, oposx, oposy;
     char esp[] = " ";
-    char buffer[2];
+    char *buffer[50];
     int ch,chi;
-    int i,j;
+    int i,j,k=0;
     int bloq=0;
     LinesEdit li;
    
@@ -63,6 +63,7 @@ int main(int argc, char** argv, char** envp){
                 }
                 else{
                     bloq=0;
+<<<<<<< HEAD
 
                     for(int i=0;i<1;i++){
                         for(int j=0;j<45;j++){
@@ -88,6 +89,28 @@ int main(int argc, char** argv, char** envp){
                     }
                     
 			posx=3;
+=======
+                  
+
+/*
+			for(int i=0;i<posy+2;i++){
+                        	for(int j=0;j<posx+3;j++){
+                                    
+                                    li.textEdit[i][j]=buffer[j]; 
+
+                                    mvprintw(posy+3,posx, "%s", li.textEdit[i][j]);
+
+                                    
+                                }
+                        
+                        }
+*/
+                        
+			posx=3;
+                        
+
+		
+>>>>>>> e798d4838ce41748ab0b4c4e979f0b5eaea298a1
                 }
 		
                 break;
@@ -123,9 +146,11 @@ int main(int argc, char** argv, char** envp){
                     if(posx!=MEDIT_MAXCOLUMNS+3)
                     {
 			                        
-			//sprintf(buffer,"%c", ch);
-                        //li.textEdit[posy-2][posx-3]= buffer; 
-                        //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
+/*
+			sprintf(buffer[k],"%c", ch);
+                        k++;
+*/
+                        
                         mvprintw(posy, posx, "%c", ch);
                         posx++;
 
