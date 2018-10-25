@@ -12,8 +12,6 @@ int main(int argc, char** argv, char** envp){
     LinesEdit li;
    
 
-//sdjbfsdbfsjdbfjsdfbj
-
 
     initscr();
     clear();
@@ -65,23 +63,36 @@ int main(int argc, char** argv, char** envp){
                 }
                 else{
                     bloq=0;
-
-                    for(int i=0;i<1;i++){
-                        for(int j=0;j<45;j++){
-                         
-                            printf("%s",li.textEdit[i][j]);
-
+                  
+			for(int i=0;i<1;i++){
+                        	for(int j=0;j<45;j++){
+                                    //li.textEdit[i][j]=mvgetch(i+2,j+3);
+                                    sprintf(buffer,"%c", mvgetch(i+2,j+3));
+                                    li.textEdit[posy-2][posx-3]= buffer; 
+                                    //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
+                                    //itoa(mvgetch(i+2,j+3),li.textEdit[i][j],1);
+/*
+                                    if(li.textEdit[i][j]==NULL){
+                                        mvprintw(i+2,j+3,"%1s",esp);
+                                        break;
+                                    }
+                                    else{
+                                    mvprintw(i+2,j+3,li.textEdit[i][j]);
+                                    }
+*/
+                                }
+                        
                         }
-                        //printf("\n");
-                    }
-                     //refresh();
-                    }
+			posx=3;
+		
+                }
 		
                 break;
             //tecla Backspace
             case KEY_BACKSPACE:
                 if (posx!=3)
                 {
+			//apaga um caracter à esquerda
                         mvdelch(posy,posx-1);
                         posx--;
                         attron(COLOR_PAIR(1));
@@ -90,9 +101,11 @@ int main(int argc, char** argv, char** envp){
 
                 }
                 break;
+		//tecla delete
             case KEY_DC:
                 if (posx!=MEDIT_MAXCOLUMNS)
                 {
+			//apaga um caracter à direita
                     mvdelch(posy,posx+1);
                     //posx--;
                     attron(COLOR_PAIR(1));
@@ -106,10 +119,11 @@ int main(int argc, char** argv, char** envp){
 		{
                     if(posx!=MEDIT_MAXCOLUMNS+3)
                     {
-                        sprintf(buffer,"%c", ch);
-                        li.textEdit[posy-2][posx-3]= buffer; 
-                        mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
-                        //mvprintw(posy, posx, "%c", ch);
+			                        
+			//sprintf(buffer,"%c", ch);
+                        //li.textEdit[posy-2][posx-3]= buffer; 
+                        //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
+                        mvprintw(posy, posx, "%c", ch);
                         posx++;
 
                     }
