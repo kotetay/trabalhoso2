@@ -56,35 +56,38 @@ int main(int argc, char** argv, char** envp){
                 {
                     init_pair(1,COLOR_RED,COLOR_BLUE);
                     attron(COLOR_PAIR(1));
-                    mvprintw(oposy,oposx,"%45s", esp);
+                    mvprintw(oposy,3,"%45s", esp);
                     bloq=1;
                     move(oposy,oposx);
                     
                 }
                 else{
                     bloq=0;
-                  
-			for(int i=0;i<1;i++){
-                        	for(int j=0;j<45;j++){
-                                    //li.textEdit[i][j]=mvgetch(i+2,j+3);
-                                    sprintf(buffer,"%c", mvgetch(i+2,j+3));
-                                    li.textEdit[posy-2][posx-3]= buffer; 
-                                    //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
-                                    //itoa(mvgetch(i+2,j+3),li.textEdit[i][j],1);
+
+                    for(int i=0;i<1;i++){
+                        for(int j=0;j<45;j++){
+                            //li.textEdit[i][j]=mvgetch(i+2,j+3);
+                            //sprintf(buffer,"%c", mvgets(i+2,j+3));
+                            mvgetstr(i+2,j+3, buffer); 
+                            mvprintw(i+3,j+3, buffer);
+                            li.textEdit[posy-2][posx-3]= buffer;
+                            mvprintw(i+4,j+3,li.textEdit[i][j]);
+                            //mvprintw(posy,posx, "%s", li.textEdit[posy-2][posx-3]);
+                            //itoa(mvgetch(i+2,j+3),li.textEdit[i][j],1);
 /*
-                                    if(li.textEdit[i][j]==NULL){
-                                        mvprintw(i+2,j+3,"%1s",esp);
-                                        break;
-                                    }
-                                    else{
-                                    mvprintw(i+2,j+3,li.textEdit[i][j]);
-                                    }
-*/
-                                }
-                        
+                            if(li.textEdit[i][j]==NULL){
+                                mvprintw(i+2,j+3,"%1s",esp);
+                                break;
+                            }
+                            else{
+                            mvprintw(i+2,j+3,li.textEdit[i][j]);
+                            }
+    */
                         }
+
+                    }
+                    
 			posx=3;
-		
                 }
 		
                 break;
