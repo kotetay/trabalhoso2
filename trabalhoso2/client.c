@@ -65,19 +65,17 @@ int main(int argc, char** argv, char** envp){
                     bloq=0;
                   
 
-/*
 			for(int i=0;i<posy+2;i++){
                         	for(int j=0;j<posx+3;j++){
                                     
-                                    li.textEdit[i][j]=buffer[j]; 
+                                    //li.textEdit[i][j]=buffer[j]; 
 
-                                    mvprintw(posy+3,posx, "%s", li.textEdit[i][j]);
+                                    //mvprintw(posy+3,posx, "%s", li.textEdit[i][j]);
 
                                     
                                 }
                         
                         }
-*/
                         
 			posx=3;
                         
@@ -118,15 +116,17 @@ int main(int argc, char** argv, char** envp){
                     if(posx!=MEDIT_MAXCOLUMNS+3)
                     {
 			                        
+			
 /*
-			sprintf(buffer[k],"%c", ch);
+                        sprintf(buffer[k],"%c", ch);
                         k++;
 */
-                        
                         mvprintw(posy, posx, "%c", ch);
                         posx++;
+                        
 
                     }
+                    
 			
 		}
 		
