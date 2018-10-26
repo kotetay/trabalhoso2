@@ -79,7 +79,7 @@ int main(int argc, char** argv){
                             //for(int j=0;j<posx+3;j++){
 
                                 //li.textEdit[i][j]=&buffer[j]; 
-                                mvprintw(posy+2, posx, "%c", buffer[i]);
+                                mvprintw(oposy posx+i, "%c", buffer[i]);
                                 //mvprintw(posy+3,posx, "%c", li.textEdit[i][j]);
 
 
