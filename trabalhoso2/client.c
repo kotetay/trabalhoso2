@@ -90,6 +90,7 @@ int main(int argc, char** argv){
                 }
                 else{
                     bloq=0;                 
+<<<<<<< HEAD
 /*
                     mvprintw(0,0, "%d", strlen(buffer)); 
                     mvprintw(0,0, "%d", sizeof(buffer)); 
@@ -108,6 +109,39 @@ int main(int argc, char** argv){
                     posx=2;
                     //funçao limpa linha apos cursor
                     //clrtoeol();	
+=======
+                    //mvprintw(0, 0, "%d", strlen(buffer));
+                    for(int i=0;i<strlen(buffer);i++){
+                            //for(int j=0;j<posx+3;j++){
+
+                        
+			for(int i=0;i<posy+2;i++){
+                        	for(int j=0;j<posx+3;j++){
+                                    
+                                    //li.textEdit[i][j]=buffer[j]; 
+
+                                    //mvprintw(posy+3,posx, "%s", li.textEdit[i][j]);
+
+                                    
+                                }
+                        
+                        }
+                        
+			posx=3;
+
+                                //li.textEdit[i][j]=&buffer[j]; 
+                                mvprintw(oposy posx+i, "%c", buffer[i]);
+                                //mvprintw(posy+3,posx, "%c", li.textEdit[i][j]);
+
+
+                            //}
+
+                    }
+                    //posx=3;
+
+
+		
+>>>>>>> 1b09a6d0d6a44c34f78e77e0396287a14eec715c
                 }
 		
                 break;
@@ -142,6 +176,24 @@ int main(int argc, char** argv){
 		{
                     if(posx!=MEDIT_MAXCOLUMNS+2)
                     {
+<<<<<<< HEAD
+=======
+			                        
+
+			
+/*
+                        sprintf(buffer[k],"%c", ch);
+                        k++;
+*/
+
+
+			sprintf(&buffer[k],"%c", ch);
+                        
+                        
+                        
+                        
+
+>>>>>>> 1b09a6d0d6a44c34f78e77e0396287a14eec715c
                         mvprintw(posy, posx, "%c", ch);
                         posx++;
                         

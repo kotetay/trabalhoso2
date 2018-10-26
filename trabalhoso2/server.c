@@ -3,9 +3,8 @@
 int main(int argc, char* argv[], char* envp[]){
         char cmd[10];
 	//int pid;
-	Matriz m;
-        BD b;
-        Users u;
+	SETTINGS s;
+        
         const char *ml = "MEDIT_MAXLINES";
         const char *mc = "MEDIT_MAXCOLUMNS";
         const char *mu = "MEDIT_MAXUSERS";
@@ -26,31 +25,31 @@ int main(int argc, char* argv[], char* envp[]){
         if (muvar != NULL){
             if (atoi(muvar) < 15 && atoi(muvar) > 1 ){
                 
-                u.nMaxUsers = atoi(muvar);
+                s.nMaxUsers = atoi(muvar);
             }
         }
         else {
             // Variavel não definida
-            u.nMaxUsers = MEDIT_MAXUSERS;
+            s.nMaxUsers = MEDIT_MAXUSERS;
         }
         
 	if (mlvar != NULL && mcvar != NULL){
-		m.nlinhas = atoi(mlvar);
-		m.ncolunas = atoi(mcvar);
+		s.nlinhas = atoi(mlvar);
+		s.ncolunas = atoi(mcvar);
 	}else{
-            m.nlinhas = MEDIT_MAXLINES;
-            m.ncolunas = MEDIT_MAXCOLUMNS;
+            s.nlinhas = MEDIT_MAXLINES;
+            s.ncolunas = MEDIT_MAXCOLUMNS;
         }
         
         //printf("argv[1]:%s \n",argv[1]);
         if (argc == 3 && sscanf(argv[1],"%s",op)==1 && sscanf(argv[2],"%s",op1)==1) {
             if (strcmp(op,"-f") == 0){
                 //printf("%s", op1);
-                strcpy(b.name,op1);
+                strcpy(s.BDname,op1);
             }
 	}
         else {
-            strcpy(b.name,"medit.db");
+            strcpy(s.BDname,"medit.db");
         }
         
 	do{
@@ -60,30 +59,30 @@ int main(int argc, char* argv[], char* envp[]){
 
 
             if (strcmp(cmd,"settings") == 0){
-                    printf("NLinhas:%d\n", m.nlinhas);
-                    printf("NColunas:%d\n", m.ncolunas);
-                    printf("NMAXUSERS:%d\n",u.nMaxUsers);
-                    printf("BDNAME:%s\n", b.name);
-                    printf("%d\n", userCheck(b.name, "renato\n"));
+                    printf("NLinhas:%d\n", s.nlinhas);
+                    printf("NColunas:%d\n", s.ncolunas);
+                    printf("NMAXUSERS:%d\n",s.nMaxUsers);
+                    printf("BDNAME:%s\n", s.BDname);
+                    printf("%d\n", userCheck(s.BDname, "renato\n")); //nome a ser passado pelo pipe
 
             }
             else if(strcmp(cmd,"load") == 0){
                     //execlp load
             }
             else if(strcmp(cmd,"save") == 0){
-                    //execlp load
+                    //execlp save
             }
             else if(strcmp(cmd,"free") == 0){
-                    //execlp load
+                    //execlp free
             }
             else if(strcmp(cmd,"statistics") == 0){
-                    //execlp load
+                    //execlp statistics
             }
             else if(strcmp(cmd,"users") == 0){
-                    //execlp load
+                    //execlp users
             }
             else if(strcmp(cmd,"text") == 0){
-                    //execlp load
+                    //execlp text
             }
             else if (strcmp(cmd,"shutdown")==0) {
                 // ......
