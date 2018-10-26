@@ -1,17 +1,29 @@
 #include "header_files/client-defaults.h"
 
 
-int main(int argc, char** argv, char** envp){
+int main(int argc, char** argv){
 
-    int nrow, ncol, posx, posy, oposx, oposy;
+    int nrow, ncol, posx=3, posy=2, oposx, oposy;
     char esp[] = " ";
-    char *buffer[50];
-    int ch,chi;
+    char buffer[50];
+    char op[2],un[10];
+    int ch;
     int i,j,k=0;
     int bloq=0;
     LinesEdit li;
    
-
+    if (argc == 3 && sscanf(argv[1],"%s",op)==1 && sscanf(argv[2],"%s",un)==1) {
+        if (strcmp(op,"-u") == 0){
+            // Processo de comunicação com servidor para verificar se username existe
+        }       
+    }
+    else if (argc == 2 && sscanf(argv[1],"%s",un)==1) {
+            // Processo de comunicação com servidor para verificar se username existe        
+    }
+    else {
+        printf("Falta de Argumentos\n");
+        return EXIT_FAILURE;
+    }
 
     initscr();
     clear();
@@ -24,12 +36,11 @@ int main(int argc, char** argv, char** envp){
     ncol=47;
     init_pair(1, COLOR_RED, COLOR_BLACK);
     mvprintw(0,30,"EDITOR DE TEXTO MEDIT");
-    //wborder(WIN *win,'|','|','-','-','+','+','+','+');
+    
     for (i=1,j=2;i<=nrow-2;i++,j++){
 	mvprintw(j,0,"%d",i);
     }
-    posy = 2;
-    posx = 3;
+    
     move(2,3);
     //refresh();
     do{
@@ -62,9 +73,12 @@ int main(int argc, char** argv, char** envp){
                     
                 }
                 else{
-                    bloq=0;
-                  
+                    bloq=0;                 
+                    //mvprintw(0, 0, "%d", strlen(buffer));
+                    for(int i=0;i<strlen(buffer);i++){
+                            //for(int j=0;j<posx+3;j++){
 
+<<<<<<< HEAD
 			for(int i=0;i<posy+2;i++){
                         	for(int j=0;j<posx+3;j++){
                                     
@@ -78,6 +92,17 @@ int main(int argc, char** argv, char** envp){
                         }
                         
 			posx=3;
+=======
+                                //li.textEdit[i][j]=&buffer[j]; 
+                                mvprintw(posy+2, posx, "%c", buffer[i]);
+                                //mvprintw(posy+3,posx, "%c", li.textEdit[i][j]);
+
+
+                            //}
+
+                    }
+                    //posx=3;
+>>>>>>> eb239633548a6caffbdef543f8eea2be4c5948a2
                         
 
 		
@@ -116,12 +141,24 @@ int main(int argc, char** argv, char** envp){
                     if(posx!=MEDIT_MAXCOLUMNS+3)
                     {
 			                        
+<<<<<<< HEAD
 			
 /*
                         sprintf(buffer[k],"%c", ch);
                         k++;
 */
+=======
+
+			sprintf(&buffer[k],"%c", ch);
+                        
+                        
+                        
+                        
+>>>>>>> eb239633548a6caffbdef543f8eea2be4c5948a2
                         mvprintw(posy, posx, "%c", ch);
+                        //mvprintw(posy+1, posx, "%c", buffer[k]);
+                        //mvprintw(posy+2, posx, "%d", k);
+                        k++;
                         posx++;
                         
 
