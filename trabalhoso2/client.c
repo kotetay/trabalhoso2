@@ -78,7 +78,7 @@ int main(int argc, char** argv){
                     for(int i=0;i<strlen(buffer);i++){
                             //for(int j=0;j<posx+3;j++){
 
-<<<<<<< HEAD
+                        
 			for(int i=0;i<posy+2;i++){
                         	for(int j=0;j<posx+3;j++){
                                     
@@ -92,7 +92,7 @@ int main(int argc, char** argv){
                         }
                         
 			posx=3;
-=======
+
                                 //li.textEdit[i][j]=&buffer[j]; 
                                 mvprintw(oposy posx+i, "%c", buffer[i]);
                                 //mvprintw(posy+3,posx, "%c", li.textEdit[i][j]);
@@ -102,8 +102,7 @@ int main(int argc, char** argv){
 
                     }
                     //posx=3;
->>>>>>> eb239633548a6caffbdef543f8eea2be4c5948a2
-                        
+
 
 		
                 }
@@ -141,20 +140,20 @@ int main(int argc, char** argv){
                     if(posx!=MEDIT_MAXCOLUMNS+3)
                     {
 			                        
-<<<<<<< HEAD
+
 			
 /*
                         sprintf(buffer[k],"%c", ch);
                         k++;
 */
-=======
+
 
 			sprintf(&buffer[k],"%c", ch);
                         
                         
                         
                         
->>>>>>> eb239633548a6caffbdef543f8eea2be4c5948a2
+
                         mvprintw(posy, posx, "%c", ch);
                         //mvprintw(posy+1, posx, "%c", buffer[k]);
                         //mvprintw(posy+2, posx, "%d", k);

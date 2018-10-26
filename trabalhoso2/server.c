@@ -64,26 +64,26 @@ int main(int argc, char* argv[], char* envp[]){
                     printf("NColunas:%d\n", m.ncolunas);
                     printf("NMAXUSERS:%d\n",u.nMaxUsers);
                     printf("BDNAME:%s\n", b.name);
-                    printf("%d\n", userCheck(b.name, "renato\n"));
+                    printf("%d\n", userCheck(b.name, "renato\n")); //nome a ser passado pelo pipe
 
             }
             else if(strcmp(cmd,"load") == 0){
                     //execlp load
             }
             else if(strcmp(cmd,"save") == 0){
-                    //execlp load
+                    //execlp save
             }
             else if(strcmp(cmd,"free") == 0){
-                    //execlp load
+                    //execlp free
             }
             else if(strcmp(cmd,"statistics") == 0){
-                    //execlp load
+                    //execlp statistics
             }
             else if(strcmp(cmd,"users") == 0){
-                    //execlp load
+                    //execlp users
             }
             else if(strcmp(cmd,"text") == 0){
-                    //execlp load
+                    //execlp text
             }
             else if (strcmp(cmd,"shutdown")==0) {
                 // ......
